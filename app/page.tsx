@@ -91,7 +91,7 @@ export default function LandingPage() {
     }, 1500);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [codeSamples]);
 
   const handleEnterArena = () => {
     if (isLoggedIn) {
@@ -175,7 +175,7 @@ export default function LandingPage() {
   // Separate animation for tagline words
   const wordVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: (i: any) => ({
+    visible: (i: number) => ({
       y: 0,
       opacity: 1,
       transition: {
@@ -509,7 +509,7 @@ export default function LandingPage() {
                 <div className="space-y-2">
                   <h4 className="font-mono text-lg leading-none text-green-400 flex items-center gap-2">
                     <UserPlus className="w-4 h-4" /> 
-                    <span className="typing-animation">New "Coder" Registration</span>
+                    <span className="typing-animation">New Coder Registration</span>
                   </h4>
                   <p className="text-sm text-gray-400 font-mono mb-2">
                     <span className="text-green-500"></span> Create an account to join the battles

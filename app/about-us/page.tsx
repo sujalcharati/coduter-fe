@@ -283,7 +283,7 @@ export default function AboutUs() {
                       </h2>
                       <p className="text-gray-400 mt-2">
                         <span className="text-green-500 font-Mono">const</span> <span className="text-yellow-300">teamMission</span> = 
-                        <span className="text-white-300 font-Mono"> "Building innovative coding experiences for developers around the world."</span>;
+                        <span className="text-white-300 font-Mono"> Building innovative coding experiences for developers around the world.</span>;
                       </p>
                     </motion.div>
                   )}

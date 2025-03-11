@@ -1,6 +1,6 @@
 "use client"
 
-import { Award, Calendar, ChevronLeft, Clock, Code, FileText, Flame, CloudLightningIcon as Lightning, List, Server, Star, Trophy, User, ArrowRight } from 'lucide-react'
+import { Award, Calendar, ChevronLeft, Clock, Code, FileText, Flame, CloudLightningIcon as Lightning, List, Server, Trophy, User, ArrowRight } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { JSX } from 'react'
