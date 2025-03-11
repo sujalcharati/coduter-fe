@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
 import { Code, Github, Linkedin, Mail, User, MessageSquare, Zap, Coffee, ArrowLeft } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image";
 
@@ -11,7 +11,7 @@ export default function AboutUs() {
   const [flippedCards, setFlippedCards] = useState<{[key: string]: boolean}>({});
 
   // Team members data
-  const teamMembers = [
+  const teamMembers = useMemo(() => [
     {
       id: "ashutosh",
       name: "Ashutosh Senapati",
@@ -42,7 +42,7 @@ export default function AboutUs() {
       linkedin: "https://www.linkedin.com/in/bhabatosh-senapati/",
       photoUrl: "/team/bhabatosh.jpeg" // Replace with actual photo path
     }
-  ];
+  ], []);
 
   // Handle card flip
   const toggleCardFlip = (memberId: string) => {
@@ -355,7 +355,7 @@ export default function AboutUs() {
                           <span className="terminal-circle bg-yellow-500"></span>
                           <span className="terminal-circle bg-green-500"></span>
                         </div>
-                        <div className="terminal-title font-mono text-xs text-gray-300">{member.name.toLowerCase().replace(" ", "_")}.js</div>
+                        <div className="terminal-title font-mono text-xs text-gray-300">{`${member.name.toLowerCase().replace(' ', '_')}.js`}</div>
                       </div>
                       
                       <div className="flex items-center mb-4">

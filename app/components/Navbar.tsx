@@ -9,21 +9,16 @@ const Navbar = () => {
   const [showContactMenu, setShowContactMenu] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const contactMenuRef = useRef<HTMLDivElement>(null);
-  // const contactButtonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
   const showSidebarTrigger = pathname === "/user-challenge/setup" || pathname === "/user-dashboard";
 
-  const toggleContactMenu = () => {
-    setShowContactMenu(!showContactMenu);
-  };
-
   // Handle clicks outside the contact menu
   useEffect(() => {
-    const handleClickOutside = (event: any) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         showContactMenu && 
         contactMenuRef.current && 
-        !contactMenuRef.current.contains(event.target) 
+        !contactMenuRef.current.contains(event.target as Node) 
       ) {
         setShowContactMenu(false);
       }
@@ -96,7 +91,6 @@ const Navbar = () => {
       </Link>
       
       <div className="flex items-center gap-4">
-        {/* Use a custom attribute to identify this as a sidebar toggle */}
         {showSidebarTrigger && (
           <button 
             data-sidebar-toggle="true"

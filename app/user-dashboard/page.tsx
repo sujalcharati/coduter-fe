@@ -111,7 +111,7 @@ export default function Dashboard() {
                 </div>
                 <div className="h-2 bg-[#0a0e17] rounded-full overflow-hidden border border-[#1c2539]/30">
                   <div className="h-full bg-gradient-to-r from-blue-900 via-blue-600 to-purple-700 rounded-full flex items-center justify-center" style={{ width: '75%' }}>
-                    <div className="w-full h-full opacity-80 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48cGF0aCBkPSJNMCAwaDEwdjEwaC0xMHpNMTAgMTBoMTB2MTBoLTEwek0wIDEwaDEwdjEwaC0xMHpNMjAgMGgxMHYxMGgtMTB6TTEwIDBIMHYxMGgxMHpNMzAgMTBoMTB2MTBoLTEwek0yMCAxMGgxMHYxMGgtMTB6TTMwIDBIMjB2MTBoMTB6TTMwIDIwaDEwdjEwaC0xMHpNMjAgMjBoMTB2MTBoLTEwek0xMCAyMGgxMHYxMGgtMTB6TTAgMjBoMTB2MTBoLTEwek0zMCAzMGgxMHYxMGgtMTB6TTIwIDMwaDEwdjEwaC0xMHpNMTAgMzBoMTB2MTBoLTEwek0wIDMwaDF2MTBoLTEweiIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpIi8+PC9zdmc+')]"></div>
+                    <div className="w-full h-full opacity-80 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDQwIDQwIj48cGF0aCBkPSJNMCAwaDEwdjEwaC0xMHpNMTAgMTBoMTB2MTBoLTEwek0wIDEwaDEwdjEwaC0xMHpNMjAgMGgxMHYxMGgtMTB6TTEwIDBIMHYxMGgxMHpNMzAgMTBoMTB2MTBoLTEwek0yMCAxMGgxMHYxMGgtMTB6TTMwIDIwaDEwdjEwaC0xMHpNMjAgMjBoMTB2MTBoLTEwek0xMCAyMGgxMHYxMGgtMTB6TTAgMjBoMTB2MTBoLTEwek0zMCAzMGgxMHYxMGgtMTB6TTIwIDMwaDEwdjEwaC0xMHpNMTAgMzBoMTB2MTBoLTEwek0wIDMwaDF2MTBoLTEweiIgZmlsbD0icmdiYSgyNTUsIDI1NSwgMjU1LCAwLjEpIi8+PC9zdmc+')]"></div>
                   </div>
                 </div>
                 <div className="text-xs text-right mt-1 text-gray-400 font-mono">94% to Level 6</div>
@@ -668,44 +668,6 @@ function UpcomingChallenge({ title, difficulty, participants, startTime }: Upcom
           </button>
         </div>
       </div>
-    </div>
-  )
-}
-
-// This is required to support other pages that might still be using the old ActivityItem component
-interface ActivityItemProps {
-  type: string;
-  title: string;
-  tags: Array<{label: string, color: string}>;
-  xp?: string;
-  time: string;
-}
-
-function ActivityItem({ type, title, tags, xp, time }: ActivityItemProps) {
-  return (
-    <div className="bg-[#080d14] rounded-lg p-4 flex items-start gap-4 border border-gray-800/20 hover:border-gray-700/30 transition-all duration-300">
-      <div className={`
-        flex-shrink-0 w-10 h-10 rounded-md flex items-center justify-center
-        ${type === 'challenge' ? 'bg-gradient-to-br from-[#1c2539] to-[#161e2d]' : 
-          type === 'level' ? 'bg-gradient-to-br from-[#2b1d5a] to-[#231849]' : 
-          'bg-gradient-to-br from-[#5a3c1d] to-[#493017]'}
-      `}>
-        {type === 'challenge' && <Code className="w-5 h-5 text-green-500" />}
-        {type === 'level' && <Award className="w-5 h-5 text-purple-500" />}
-        {type === 'badge' && <Star className="w-5 h-5 text-orange-500" />}
-      </div>
-      <div className="flex-1">
-        <div className="font-medium mb-2 font-mono">{title}</div>
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag, index) => (
-            <span key={index} className={`${tag.color} text-xs px-2 py-0.5 rounded-md font-mono`}>
-              {tag.label}
-            </span>
-          ))}
-          {xp && <span className="bg-blue-700/50 text-blue-100 text-xs px-2 py-0.5 rounded-md font-mono border border-blue-600/50">{xp}</span>}
-        </div>
-      </div>
-      <div className="text-xs text-gray-400 whitespace-nowrap font-mono">{time}</div>
     </div>
   )
 }

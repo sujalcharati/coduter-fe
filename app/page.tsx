@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
 import {  UserPlus,Terminal,  LogIn } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -19,7 +19,7 @@ export default function LandingPage() {
   const [activeTab, setActiveTab] = useState("login"); // For tracking active tab
 
   // Code snippets that will animate in the background
-  const codeSamples = [
+  const codeSamples = useMemo(() => [
     "function solveChallenge(input) {",
     "  const result = [];",
     "  for (let i = 0; i < input.length; i++) {",
@@ -51,7 +51,7 @@ export default function LandingPage() {
     "  <h2>Challenge Completed!</h2>",
     "  <div className='points'>+25 XP</div>",
     "</div>",
-  ];
+  ], []);
 
   // Split tagline into words for animation
   const taglineWords = [
