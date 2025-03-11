@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
-import { Code2, Users, Mail, Phone, X, Instagram, Twitter, Menu } from 'lucide-react'
+import { Code2, Menu } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { usePathname } from 'next/navigation'
 
@@ -9,7 +9,7 @@ const Navbar = () => {
   const [showContactMenu, setShowContactMenu] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const contactMenuRef = useRef<HTMLDivElement>(null);
-  const contactButtonRef = useRef<HTMLButtonElement>(null);
+  // const contactButtonRef = useRef<HTMLButtonElement>(null);
   const pathname = usePathname();
   const showSidebarTrigger = pathname === "/user-challenge/setup" || pathname === "/user-dashboard";
 

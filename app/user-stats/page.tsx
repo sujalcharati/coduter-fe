@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
 import { 
   Award, 
@@ -16,9 +15,7 @@ import {
   Server, 
   Star, 
   Trophy, 
-  User 
 } from 'lucide-react'
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
@@ -71,7 +68,7 @@ export default function UserStats() {
     <div className="min-h-screen bg-[#0a0e17] text-white font-mono">
       <main className="container mx-auto p-4 max-w-6xl">
         {/* Back button */}
-        <Button variant="outline" className="mb-6 bg-[#131a2b] border-gray-700 hover:bg-[#1c2539] text-gray-300 font-mono" asChild>
+        <Button variant="outline" className="mb-6 bg-[#131a2b] border-gray-700  text-gray-300 font-mono" asChild>
           <Link href="/user-dashboard">
             <ChevronLeft className="mr-2 h-4 w-4" />
             Back to Dashboard
@@ -392,7 +389,7 @@ export default function UserStats() {
   )
 }
 
-function StatCard({ title, value, icon, bgColor }) {
+function StatCard({ title, value, icon, bgColor }: { title: string, value: string | number, icon: React.ReactNode, bgColor: string }) {
   return (
     <div className={`${bgColor} rounded-lg p-4 flex flex-col`}>
       <div className="text-gray-400 text-sm mb-1 font-mono">{title}</div>
@@ -404,7 +401,21 @@ function StatCard({ title, value, icon, bgColor }) {
   )
 }
 
-function CircularStatCard({ title, value, icon, color, maxValue = 100, suffix = "" }) {
+function CircularStatCard({ 
+  title, 
+  value, 
+  icon, 
+  color, 
+  maxValue = 100, 
+  suffix = "" 
+}: {
+  title: string;
+  value: number;
+  icon: React.ReactNode;
+  color: string;
+  maxValue?: number;
+  suffix?: string;
+}) {
   const percentage = Math.min(100, (value / maxValue) * 100);
   
   return (
@@ -441,7 +452,17 @@ function CircularStatCard({ title, value, icon, color, maxValue = 100, suffix = 
   )
 }
 
-function RecommendedAction({ title, description, linkText, linkHref }) {
+function RecommendedAction({ 
+  title,
+  description, 
+  linkText,
+  linkHref 
+}: {
+  title: string;
+  description: string;
+  linkText: string;
+  linkHref: string;
+}) {
   return (
     <div className="bg-[#1c2539] hover:bg-[#232f4a] transition-colors duration-200 rounded-lg p-4 flex flex-col">
       <h3 className="font-medium text-white mb-2 font-mono">{title}</h3>

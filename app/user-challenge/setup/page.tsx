@@ -14,24 +14,22 @@ import {
   ArrowLeft,
   Shield,
   Cpu,
-  BarChart,
-  Sidebar
+ 
 } from "lucide-react";
 import { useState, useEffect, useRef, Children } from "react";
 import { Button } from "@/components/ui/button";
-import { AppSidebar } from "@/app/components/AppSidebar";
-import ClientLayout from "@/app/components/ClientLayout";
+
 
 // Helper function to return background and border classes for an option
-interface Option {
-  id: string;
-  label: string;
-  description: string;
-  color: string;
-  icon: React.ComponentType;
-  xpRange?: string;
-  value?: number;
-}
+// interface Option {
+//   id: string;
+//   label: string;
+//   description: string;
+//   color: string;
+//   icon: React.ComponentType;
+//   xpRange?: string;
+//   value?: number;
+// }
 
 function getBgClass(color: string, selected: boolean): string {
   if (color === "red") {

@@ -1,20 +1,14 @@
 "use client"
 import { motion } from "framer-motion"
-import Link from "next/link"
-import { Code2, UserPlus, Gamepad2, Zap, Trophy, Terminal, MonitorPlay, LogIn } from "lucide-react"
+import {  UserPlus,Terminal,  LogIn } from "lucide-react"
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
 
 export default function LandingPage() {
   const [name, setName] = useState("")
-  const [codingType, setCodingType] = useState("")
+  // const [codingType, setCodingType] = useState("")
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [codeLines, setCodeLines] = useState<string[]>([]);
@@ -610,11 +604,7 @@ export default function LandingPage() {
                     </button>
                   </div>
                   
-                  <div className="text-xs text-gray-500 font-mono text-center py-1">
-                    <span className="text-green-500"></span> New players receive <span className="text-green-400">50 XP</span> bonus
-                  </div>
-                  <Footer/>
-                </div>
+                                 </div>
               </div>
             )}
           </div>

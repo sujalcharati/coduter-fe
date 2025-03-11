@@ -1,9 +1,8 @@
 "use client"
 import { motion } from "framer-motion"
-import { Code, Terminal, Github, Linkedin, Mail, User, MessageSquare, Zap, Coffee, ArrowLeft } from "lucide-react"
+import { Code, Github, Linkedin, Mail, User, MessageSquare, Zap, Coffee, ArrowLeft } from "lucide-react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Navbar from "../components/Navbar"
 import Image from "next/image";
 
 export default function AboutUs() {
@@ -69,7 +68,7 @@ export default function AboutUs() {
     }, {} as {[key: string]: boolean});
     
     setFlippedCards(initialFlippedState);
-  }, []);
+  }, [teamMembers]);
 
   // Animation variants
   const containerVariants = {
@@ -104,7 +103,15 @@ export default function AboutUs() {
           ease: string;
         };
       };
-      [key: string]: any;
+      [key: string]: { opacity: number; scale: number } | ((custom: number) => {
+        opacity: number;
+        scale: number;
+        transition: {
+          delay: number;
+          duration: number;
+          ease: string;
+        };
+      });
     }
 
   const memberVariants: MemberVariants = {
@@ -315,7 +322,7 @@ export default function AboutUs() {
                       
                       <div className="flex flex-col items-center justify-center p-6 mt-6">
                         <div className="mb-4 relative w-40 h-40 overflow-hidden rounded-full shadow-xl">
-                          <img 
+                          <Image 
                             src={member.photoUrl} 
                             alt={`Photo of ${member.name}`} 
                             width={200}
@@ -348,7 +355,7 @@ export default function AboutUs() {
                           <span className="terminal-circle bg-yellow-500"></span>
                           <span className="terminal-circle bg-green-500"></span>
                         </div>
-                        <div className="terminal-title font-mono text-xs text-gray-300">{member.name.toLowerCase().replace(' ', '_')}.js</div>
+                        <div className="terminal-title font-mono text-xs text-gray-300">{member.name.toLowerCase().replace(" ", "_")}.js</div>
                       </div>
                       
                       <div className="flex items-center mb-4">

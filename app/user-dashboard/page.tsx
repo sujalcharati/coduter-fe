@@ -1,15 +1,12 @@
 "use client"
 
-import { useState } from "react"
 import { Award, Calendar, ChevronLeft, Clock, Code, FileText, Flame, CloudLightningIcon as Lightning, List, Server, Star, Trophy, User, ArrowRight } from 'lucide-react'
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { motion } from "framer-motion"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { JSX } from 'react'
 
 export default function Dashboard() {
-  const [activeTab, setActiveTab] = useState("activity")
+  // const [activeTab, setActiveTab] = useState("activity")
 
   return (
     <div className="min-h-screen bg-[#0a0e17] text-white font-mono">
@@ -389,7 +386,7 @@ interface StatCardProps {
 }
 
 function StatCard({ title, value, icon, color, circular = false, percentage = 0 }: StatCardProps) {
-  const getBgColor = (color) => {
+  const getBgColor = (color:string) => {
     switch(color) {
       case 'green': return 'from-[#101a13] to-[#0e1811]';
       case 'blue': return 'from-[#101824] to-[#0e1520]';
@@ -399,7 +396,7 @@ function StatCard({ title, value, icon, color, circular = false, percentage = 0 
     }
   };
   
-  const getBorderColor = (color) => {
+  const getBorderColor = (color:string) => {
     switch(color) {
       case 'green': return 'border-green-900/40';
       case 'blue': return 'border-blue-900/40';
@@ -409,7 +406,7 @@ function StatCard({ title, value, icon, color, circular = false, percentage = 0 
     }
   };
   
-  const getProgressColor = (color) => {
+  const getProgressColor = (color:string) => {
     switch(color) {
       case 'green': return '#22c55e';
       case 'blue': return '#3b82f6';
@@ -470,7 +467,7 @@ interface BattleActivityItemProps {
 }
 
 function BattleActivityItem({ title, opponent, language, result, timeTaken, difficulty, xp, time }: BattleActivityItemProps) {
-  const getDifficultyColor = (difficulty) => {
+  const getDifficultyColor = (difficulty:string) => {
     switch(difficulty) {
       case 'Beginner': return 'bg-blue-700 text-blue-100';
       case 'Intermediate': return 'bg-orange-700 text-orange-100';
@@ -479,7 +476,7 @@ function BattleActivityItem({ title, opponent, language, result, timeTaken, diff
     }
   };
 
-  const getResultColor = (result) => {
+  const getResultColor = (result:string) => {
     switch(result.toLowerCase()) {
       case 'win': return 'bg-green-700 text-green-100';
       case 'loss': return 'bg-red-700 text-red-100';
@@ -488,7 +485,7 @@ function BattleActivityItem({ title, opponent, language, result, timeTaken, diff
     }
   };
 
-  const getLanguageColor = (language) => {
+  const getLanguageColor = (language:string) => {
     switch(language.toLowerCase()) {
       case 'javascript': return 'bg-yellow-600/40 text-yellow-100 border border-yellow-600/50';
       case 'python': return 'bg-blue-600/40 text-blue-100 border border-blue-600/50';
@@ -569,7 +566,7 @@ interface BadgeItemProps {
 }
 
 function BadgeItem({ icon, title, description, progress, completed = false, color }: BadgeItemProps) {
-  const getProgressColor = (color) => {
+  const getProgressColor = (color:string) => {
     switch(color) {
       case 'green': return '#22c55e';
       case 'blue': return '#3b82f6';
@@ -580,7 +577,7 @@ function BadgeItem({ icon, title, description, progress, completed = false, colo
     }
   };
   
-  const getBgColor = (color) => {
+  const getBgColor = (color:string) => {
     switch(color) {
       case 'green': return 'from-green-900/20 to-green-900/10';
       case 'blue': return 'from-blue-900/20 to-blue-900/10';
@@ -635,7 +632,7 @@ interface UpcomingChallengeProps {
 }
 
 function UpcomingChallenge({ title, difficulty, participants, startTime }: UpcomingChallengeProps) {
-  const getDifficultyColor = (difficulty) => {
+  const getDifficultyColor = (difficulty:string) => {
     switch(difficulty) {
       case 'Beginner': return 'bg-blue-700 text-blue-100';
       case 'Intermediate': return 'bg-orange-700 text-orange-100';

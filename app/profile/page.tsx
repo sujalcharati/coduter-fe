@@ -1,10 +1,9 @@
 "use client"
 
-import { useState } from "react"
+// import { useState } from "react"
 import Link from "next/link"
 import { 
   Award, 
-  BarChart2, 
   Calendar, 
   ChevronLeft, 
   Clock, 
@@ -16,26 +15,21 @@ import {
   Laptop,
   LineChart, 
   LinkedinIcon,
-  List, 
   Mail,
   MapPin,
   Pencil,
-  Server, 
   Settings,
   Star,
   Terminal,
   Trophy, 
-  User,
   UserPlus,
 } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Separator } from "@/components/ui/separator"
 
 export default function UserProfile() {
-  const [activeTab, setActiveTab] = useState("overview")
+  // const [activeTab, setActiveTab] = useState("overview")
 
   // Mock data for user profile
   const userData = {
@@ -85,7 +79,7 @@ export default function UserProfile() {
     ]
   };
 
-  const getChallengeTypeColor = (type ) => {
+  const getChallengeTypeColor = (type: string) => {
     switch(type) {
       case 'challenge': return 'bg-[#1c2539]';
       case 'level': return 'bg-purple-900';
@@ -94,7 +88,7 @@ export default function UserProfile() {
     }
   };
 
-  const getResultBadge = (result) => {
+  const getResultBadge = (result: string) => {
     if (!result) return null;
     
     switch(result.toLowerCase()) {
@@ -105,7 +99,7 @@ export default function UserProfile() {
     }
   };
 
-  const getDifficultyBadge = (difficulty) => {
+  const getDifficultyBadge = (difficulty: string) => {
     if (!difficulty) return null;
     
     switch(difficulty.toLowerCase()) {
@@ -123,7 +117,7 @@ export default function UserProfile() {
         <div className="flex justify-between items-center mb-8">
           <Button 
             variant="outline" 
-            className="bg-[#0d131f] border-gray-800/50 hover:bg-[#101624] text-gray-300 transition-all duration-300"
+            className="bg-[#0d131f] border-gray-800/50  text-gray-300 transition-all duration-300"
             asChild
           >
             <Link href="/user-dashboard">
@@ -135,14 +129,14 @@ export default function UserProfile() {
           <div className="flex gap-4">
             <Button 
               variant="outline" 
-              className="bg-[#0d131f] border-green-800/50 hover:bg-[#101624] text-green-400 transition-all duration-300"
+              className="bg-[#0d131f] border-green-800/50  text-green-400 transition-all duration-300"
             >
               <UserPlus className="mr-2 h-4 w-4" />
               Add Friend
             </Button>
             <Button 
               variant="outline" 
-              className="bg-[#0d131f] border-blue-800/50 hover:bg-[#101624] text-blue-400 transition-all duration-300"
+              className="bg-[#0d131f] border-blue-800/50 text-blue-400 transition-all duration-300"
             >
               <Settings className="mr-2 h-4 w-4" />
               Edit Profile
@@ -375,8 +369,8 @@ export default function UserProfile() {
                     <div className="flex-1">
                       <div className="font-medium mb-1">{activity.title}</div>
                       <div className="flex flex-wrap gap-2">
-                        {getResultBadge(activity.result)}
-                        {getDifficultyBadge(activity.difficulty)}
+                        {activity.result && getResultBadge(activity.result)}
+                        {activity.difficulty && getDifficultyBadge(activity.difficulty)}
                         {activity.xp && (
                           <Badge className="bg-blue-600 text-white">
                             +{activity.xp} XP
@@ -463,7 +457,7 @@ export default function UserProfile() {
   )
 }
 
-function StatCard({ title, value, icon }) {
+function StatCard({ title, value, icon }: { title: string; value: string | number; icon: React.ReactNode }) {
   return (
     <div className="bg-[#080d14] rounded-lg p-4 border border-gray-800/30 flex flex-col">
       <div className="text-gray-400 text-sm mb-1">{title}</div>
